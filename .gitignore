@@ -1,7 +1,4 @@
-*
-
-!.gitignore
-!TLCRawDataParse.py
-!TLCRawDataParse2.py
-!README.md
+*.txt
+*.mat
+*.log
 
