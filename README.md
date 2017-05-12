@@ -1,4 +1,4 @@
-#H TLCParse
+# TLCParse
 [Github](https://github.com/NathanToneNg/Thermal-Live-Viewer-Raw-Data-Parse)
 
 This program will help to retrieve, parse, and interpret raw data from the [Thermal Live Viewer Program created by maxritter](https://github.com/maxritter/DIY-Thermocam). This assumes the camera has been set up and is using a calibration of [-273.15,0.01] and the raw data is stored in hexadecimal. If your calibration is different, instructions to fix how data is parsed will be below in the Calibration section.
@@ -65,8 +65,8 @@ This program will help to retrieve, parse, and interpret raw data from the [Ther
     (_Note that the data is returned as floats_)
     	*Additional information about the specific formatting may be found [here](https://github.com/maxritter/DIY-Thermocam/blob/master/Documents/SerialProtocol_15.pdf).
 
-*After obtaining the calibration values, the TLVRawDataParse.py program can be easily modified by finding the createMatrix function and changing the line
-<center> _Matrix[y][x] = (num * 0.01) - 273.15_ <\center>
+* After obtaining the calibration values, the TLVRawDataParse.py program can be easily modified by finding the createMatrix function and changing the line
+					_Matrix[y][x] = (num * 0.01) - 273.15_ 
 	by replacing the 0.01 with your calibration slope and 273.15 with your calibration offset.
 	
 ---
