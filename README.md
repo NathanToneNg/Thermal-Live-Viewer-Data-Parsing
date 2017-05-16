@@ -1,5 +1,5 @@
 # TLCParse
-[Github](https://github.com/NathanToneNg/Thermal-Live-Viewer-Raw-Data-Parse)
+[Github](https://github.com/NathanToneNg/Thermal-Live-Viewer-Data-Parsing)
 
 This program will help to retrieve, parse, and interpret raw data from the [Thermal Live Viewer Program created by maxritter](https://github.com/maxritter/DIY-Thermocam). This assumes the camera has been set up and is using a calibration of [-273.15,0.01] and the raw data is stored in hexadecimal. If your calibration is different, instructions to fix how data is parsed will be below in the Calibration section.
 
@@ -16,29 +16,43 @@ This program will help to retrieve, parse, and interpret raw data from the [Ther
 * Similarly, create a receiver file (ex. data.txt) and move it into the Realterm folder
 * In the sender file, type in the following without quotes: "dddddo"
 
+* In the Realterm application, navigate to the *Port tab*:
+    * *Port*: \10 (should be USB)
+    * *Baud Rate*: 9600
+    * Press *Change*, and then reset open and leave it pressed again. 
+    	* If no pop-up occurs, then everything is good.
+	* Navigate to the Send tab and enter the number '100' into the left of the top *Send Numbers* button. Then press the *Send Numbers* button. If the letter 'd' is returned, then it is set up properly.
+	
+* Navigate to the *Capture tab*:
+	* Below the *Stop capture* button is a button with ellipses. Select that button and select the receiver file you created.
+	* Click on the *Capture as Hex* button and leave it checked.
+	* Press on the *Start Overwrite* button when you are ready, or press *Start Append* If you want to keep that data you already have. Note that we have no timestamps implemented, so this may cause confusion.
+		*The whole box should light up red.
+	
+* Navigate to the *Send tab*:
+	* Below *Dump File to Port* is another button with ellipses. Select that button and select the send file you created.
+	* By the button *Repeats*, turn the 1 into a 0 (subtext is "_Send file repeatedly_"). 
+	
+	* Select the edit box to the right of it and turn the 0 into 300 (subtext is "_Sets the delay..._")
+	
+	* Finally, when you are ready to retrieve data, press the *Send File* button next to the ellipses button at the exact moment you are ready to start. 
+		* With these settings, data matrices will be received at a rate of 3 times a second, accurate up to a minute. 
+		
+* After taking all the data needed, navigate to the capture tab and press "Stop capture"
 
-* In the Realterm application, navigate to the Port tab:
-    * Port: \10 (should be USB)
-    * Baud Rate: 9600
-    * Press change, and then reset open and leave it pressed again.
+## Measurements after setup
+* Before retrieving additional data, be sure to move or copy the data retrieval file so that the data is not overwritten.
+* Navigate to the *Send tab* and send 100 by the top *Send Numbers* button, and make sure that the letter 'd' is returned.
+* Select the same or a new data retrieval file within the *Capture tab* *...* button. 
+* Press on the *Start Overwrite* button when you are ready, or press *Start Append* If you want to keep that data you already have. Note that we have no timestamps implemented, so this may cause confusion.
+		*The whole box should light up red.
+* Finally, when you are ready to retrieve data, press the *Send File* button next to the ellipses button at the exact moment you are ready to start. 
 
-* Navigate to the Capture tab:
-    * Leave the "print in hexadecimal" box checked
 
-* Navigate to the Send tab:
-    * 
-    
-    
-    
-    
-    
-## Receiving Data
+## Finishing Up
+	* Navigate back to the Send tab and enter the number "200" next to the top "Send Numbers" button, and then press that "Send Numbers" button. 
+		* Note that if later programs give the warning "Put the camera in live mode," this is probably the missed step, and should be done to fix it.
 
-* Ensure that there is full connection between the computer and the camera by sending the number "100" in the Send tab. If there is a full connection, the letter "d" should appear in return on the console.
-
-* When ready, navigate to the Capture tab and select the Overwrite button, or the Append button if data should append to the file not replace it. The tab should turn red.
-
-* Navigate to the Send tab and 
 
 
 ## Data Analysis
