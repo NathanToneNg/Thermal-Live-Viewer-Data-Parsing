@@ -84,8 +84,7 @@ This program will help to retrieve, parse, and interpret raw data from the [Ther
 					_Matrix[y][x] = (num * 0.01) - 273.15_ 
 	by replacing the 0.01 with your calibration slope and 273.15 with your calibration offset.
 	
-## Error 
 	
 ---
-Questions can be sent to nathantoneng@gmail.com
+Questions for these files can be sent to nathantoneng@gmail.com, questions about the hardware and underlying program should be sent to maxritter.
 
