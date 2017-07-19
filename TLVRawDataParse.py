@@ -94,11 +94,11 @@ def getAverageHighTemp(Matrix3,matFile, percentile):
 				Matrix[y][x] = Matrix3[y][x][z]
 		summation = 0;
 		#med = numpy.median(Matrix)
-		med = numpy.percentile(Matrix, 90);
+		med = numpy.percentile(Matrix, percentile);
 		#print(med)
 		for x in range(0,79):
 			for y in range(0,59):
-				if Matrix[y][x] > med:
+				if Matrix[y][x] >= med:
 					summation += Matrix[y][x]
 					counter += 1;
 		if summation == 0:
@@ -125,7 +125,7 @@ def main(argv):
 				Matrix3[y][x][i] = tmpMatrix[y][x]
 		i += 1;
 	matFile = str(argv[2])
-	highTemps = getAverageHighTemp(Matrix3, argv[2], 90);
+	highTemps = getAverageHighTemp(Matrix3, argv[2], 96);
 
 	
 
